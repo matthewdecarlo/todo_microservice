@@ -1,0 +1,10 @@
+version: '3'
+services:
+  database-service:
+    env_file:
+      - ./packages/database_service/firebase.production.env
+    environment:
+      - NODE_ENV=production
+      - PRODUCTION=true
+    ports:
+      - 3001:3000

@@ -1,0 +1,6 @@
+{
+  "firestore": {
+    "name": "firestore",
+    "connector": "loopback-connector-firestore"
+  }
+}

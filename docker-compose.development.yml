@@ -1,0 +1,27 @@
+version: '3'
+services:
+  database-service:
+    command: >
+      bash -c "npm install --global nodemon |
+               npm install &&
+               nodemon node --inspect=5051"
+    env_file:
+      - ./.env
+      - ./packages/database_service/firebase.development.env
+    environment:
+      - NODE_ENV=development
+      - PRODUCTION=false
+    ports:
+      - ${DATABASE_SERVICE_PORT}:3000
+      - ${DATABASE_SERVICE_NODEMON_PORT}
+  to-do-app:
+    build: ./packages/to_do_app
+    command: >
+      bash -c "yarn && yarn start"
+    environment:
+      - NODE_ENV=development
+      - PRODUCTION=false
+    ports:
+      - ${TO_DO_APP_PORT}:3000
+    volumes:
+      - ./packages/to_do_app:/to_do_app

@@ -1,0 +1,13 @@
+{
+  "name": "root",
+  "private": true,
+  "devDependencies": {
+    "lerna": "^3.13.1"
+  },
+  "scripts": {
+    "development:build": "docker-compose -f docker-compose.common.yml -f docker-compose.development.yml build --no-cache",
+    "development:watch:up": "docker-compose -f docker-compose.common.yml -f docker-compose.development.yml up",
+    "development:watch:down": "docker-compose -f docker-compose.common.yml -f docker-compose.development.yml down",
+    "production:build": "docker-compose -f docker-compose.common.yml -f docker-compose.production.yml build --no-cache"
+  }
+}

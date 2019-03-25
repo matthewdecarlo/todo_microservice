@@ -1,0 +1,6 @@
+version: '3'
+services:
+  database-service:
+    build: ./packages/database_service
+    volumes:
+      - ./packages/database_service:/database_service
